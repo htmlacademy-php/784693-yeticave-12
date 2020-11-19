@@ -3,51 +3,65 @@ $is_auth = rand(0, 1);
 
 $user_name = 'Samir'; // укажите здесь ваше имя
 
+
 $categories =
 [
-    0 =>
+
     [
         'category' => 'Доски и лыжи',
         'name' => '2014 Rossignol District Snowboard',
         'price' => '10999',
         'img_url' => 'img/lot-1.jpg'
     ],
-    1 =>
+
     [
         'category' => 'Крепления',
         'name' => 'DC Ply Mens 2016/2017 Snowboard',
         'price' => '159999',
         'img_url' => 'img/lot-2.jpg'
     ],
-    2 =>
+
     [
         'category' => 'Ботинки',
         'name' => 'Крепления Union Contact Pro 2015 года размер L/XL',
         'price' => '8000',
         'img_url' => 'img/lot-3.jpg'
     ],
-    3 =>
+
     [
         'category' => 'Одежда',
         'name' => 'Ботинки для сноуборда DC Mutiny Charocal',
         'price' => '10999',
         'img_url' => 'img/lot-4.jpg'
     ],
-    4 =>
+
     [
         'category' => 'Инструменты',
         'name' => 'Куртка для сноуборда DC Mutiny Charocal',
         'price' => '7500',
         'img_url' => 'img/lot-5.jpg'
     ],
-    5 =>
+
     [
         'category' => 'Разное',
         'name' => 'Маска Oakley Canopy',
         'price' => '5400',
         'img_url' => 'img/lot-6.jpg'
     ],
+
 ];
+
+function get_full_price($full_price) {
+    $x = $full_price;
+    if ($x < 1000) {
+        $x = $x . ' ₽';
+    }
+    if ($x >= 1000) {
+        $x = number_format($x, 0, '.', ' ') . ' ₽';
+    }
+    return $x;
+}
+
 
 ?>
 <!DOCTYPE html>
@@ -74,7 +88,6 @@ $categories =
         <a class="main-header__add-lot button" href="pages/add-lot.html">Добавить лот</a>
 
         <nav class="user-menu">
-
         <!-- здесь должен быть PHP код для показа меню и данных пользователя -->
         <?php if ($is_auth == 1): ?>
             <div class="user-menu__logged">
@@ -125,7 +138,9 @@ $categories =
                     <div class="lot__state">
                         <div class="lot__rate">
                             <span class="lot__amount">Стартовая цена</span>
-                            <span class="lot__cost"><?= $category['price'] ?><b class="rub">р</b></span>
+
+<span class="lot__cost"><?=  get_full_price($category['price']) ?></span>
+
                         </div>
                         <div class="lot__timer timer">
                             12:23
