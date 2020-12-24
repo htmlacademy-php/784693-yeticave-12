@@ -52,15 +52,11 @@ $categories =
 ];
 
 function get_full_price($full_price) {
-    $x = $full_price;
     if ($x < 1000) {
-        $x = $x . ' ₽';
+        return $full_price;
     }
-    if ($x >= 1000) {
-        $x = number_format($x, 0, '.', ' ') . ' ₽';
+        return number_format($x, 0, '.', ' ');
     }
-    return $x;
-}
 
 
 ?>
