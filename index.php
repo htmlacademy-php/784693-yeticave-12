@@ -3,7 +3,6 @@ $is_auth = rand(0, 1);
 
 $user_name = 'Samir'; // укажите здесь ваше имя
 
-
 $categories =
 [
 
@@ -48,14 +47,13 @@ $categories =
         'price' => '5400',
         'img_url' => 'img/lot-6.jpg'
     ],
-
 ];
 
 function get_full_price($full_price) {
-    if ($x < 1000) {
+    if ($full_price < 1000) {
         return $full_price;
     }
-        return number_format($x, 0, '.', ' ');
+        return number_format($full_price, 0, '.', ' ');
     }
 
 
@@ -84,6 +82,7 @@ function get_full_price($full_price) {
         <a class="main-header__add-lot button" href="pages/add-lot.html">Добавить лот</a>
 
         <nav class="user-menu">
+
         <!-- здесь должен быть PHP код для показа меню и данных пользователя -->
         <?php if ($is_auth == 1): ?>
             <div class="user-menu__logged">
