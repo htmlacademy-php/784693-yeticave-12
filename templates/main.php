@@ -30,10 +30,20 @@
                             <span class="lot__amount">Стартовая цена</span>
 
 <span class="lot__cost"><?=  get_full_price($category['price']) ?></span>
-
                         </div>
-                        <div class="lot__timer timer">
-                            12:23
+                        <?php
+                        [$hours, $minutes] = get_dt_range($category['date']);
+                        ?>
+                        <div class="lot__timer timer <?= $hours == 0 ? 'timer--finishing': '' ?>"> <!---тернарный аператор--->
+                            <?php
+//                            get_dt_range($category['date'], $q, $w);
+//                            echo "$q " . " $w";
+                            echo "{$hours}:{$minutes}";
+//                            $date1 = new DateTime();
+//                            $date2 = new DateTime($category['date']);
+//                            $date = $date1->diff($date2);
+//                            echo $date->format('%a день %H:%I времени');
+                            ?>
                         </div>
                     </div>
                 </div>
