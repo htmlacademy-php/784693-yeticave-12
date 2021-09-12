@@ -21,10 +21,10 @@ USE yeti;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `yeti`.`user` (
                                              `id` INT NOT NULL AUTO_INCREMENT,
-                                             `email` VARCHAR(45) NOT NULL,
-                                             `password` CHAR(32) NOT NULL,
-                                             `name` VARCHAR(45) NOT NULL,
-                                             `contacts` TEXT NOT NULL,
+                                             `email` VARCHAR(255) NOT NULL,
+                                             `password` VARCHAR (255) NOT NULL,
+                                             `name` VARCHAR(255) NOT NULL,
+                                             `contacts` TEXT NULL,
                                              PRIMARY KEY (`id`),
                                              UNIQUE INDEX `email_UNIQUE` (`email` ASC),
                                              INDEX `idx_user_email_password` (`email` ASC, `password` ASC))
@@ -90,7 +90,6 @@ CREATE TABLE IF NOT EXISTS `yeti`.`lot_image` (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `yeti`.`lot_bid` (
                                                 `id` INT NOT NULL,
-                                                `lot_bidcol` VARCHAR(45) NULL,
                                                 `price` INT NOT NULL,
                                                 `lot_id` INT NOT NULL,
                                                 `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
