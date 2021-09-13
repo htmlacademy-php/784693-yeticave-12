@@ -48,6 +48,7 @@ CREATE TABLE IF NOT EXISTS `yeti`.`lot` (
                                             `id` INT NOT NULL AUTO_INCREMENT,
                                             `user_id` INT NOT NULL,
                                             `start_bid` MEDIUMINT UNSIGNED NOT NULL,
+                                            `winner_id` INT NOT NULL,
                                             `end_date` DATE NOT NULL,
                                             `bit_step` MEDIUMINT UNSIGNED NOT NULL,
                                             `title` VARCHAR(255) NOT NULL,
@@ -73,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `yeti`.`lot` (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `yeti`.`lot_image` (
                                                   `id` INT NOT NULL AUTO_INCREMENT,
-                                                  `path` VARCHAR(63) NOT NULL,
+                                                  `path` MESSAGE_TEXT(255) NOT NULL,
                                                   `lot_id` INT NOT NULL,
                                                   PRIMARY KEY (`id`),
                                                   INDEX `idx_lot_image_lot_id` (`lot_id` ASC),
