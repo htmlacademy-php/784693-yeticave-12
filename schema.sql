@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `yeti`.`lot_image` (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `yeti`.`lot_bid` (
                                                 `id` INT NOT NULL,
-                                                `price` INT NOT NULL,
+                                                `price` DECIMAL NOT NULL,
                                                 `lot_id` INT NOT NULL,
                                                 `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
                                                 `user_id` INT NOT NULL,
